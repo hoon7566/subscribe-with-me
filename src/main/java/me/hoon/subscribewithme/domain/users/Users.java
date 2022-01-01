@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import me.hoon.subscribewithme.domain.common.BaseEntity;
 import org.modelmapper.internal.bytebuddy.dynamic.loading.InjectionClassLoader;
 import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.data.annotation.Id;
@@ -19,9 +20,8 @@ import org.modelmapper.convention.MatchingStrategies;
 @Data
 @AllArgsConstructor
 @Builder
-@NoArgsConstructor
 @Slf4j
-public class Users {
+public class Users extends BaseEntity {
 
     @Id
     private Long userId;
@@ -32,8 +32,13 @@ public class Users {
     @Column("user_email")
     private String userEmail;
 
+    public Users(){
+        super();
+    }
+
 
     public Users(UserDto userDto){
+        super();
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 

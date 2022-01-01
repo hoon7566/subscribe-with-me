@@ -27,8 +27,22 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/**").permitAll();
+        http.authorizeRequests()
+                .antMatchers("/**")
+                .permitAll()
+                .and().addFilter(getAuthenticationFilter());
 
     }
 
+    public AuthenticationFilter getAuthenticationFilter() throws Exception {
+
+        return new AuthenticationFilter(authenticationManager(),userService,environment);
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+        auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);
+        super.configure(auth);
+    }
 }

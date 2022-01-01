@@ -2,13 +2,17 @@ package me.hoon.subscribewithme.domain.users;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.ArrayList;
 
 @Service
 @Slf4j
@@ -37,7 +41,14 @@ public class UserService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
+
+        return  userRepository.findByUserEmail(userEmail)
+                .blockOptional()
+                .map(users -> new User(users.getUserEmail()
+                        ,users.getUserPassword()
+                        ,new ArrayList<>()))
+                .orElseThrow(() -> new UsernameNotFoundException("userEmail ->" +userEmail +"Not Found"));
+
     }
 }
