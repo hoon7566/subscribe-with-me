@@ -1,13 +1,11 @@
-package me.hoon.subscribewithme.domain.users;
+package me.hoon.subscribewithme.domain.model.users;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.hoon.subscribewithme.domain.common.BaseEntity;
-import org.modelmapper.internal.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.modelmapper.spi.MatchingStrategy;
+import me.hoon.subscribewithme.domain.model.common.BaseEntity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;

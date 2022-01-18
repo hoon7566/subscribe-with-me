@@ -1,4 +1,4 @@
-package me.hoon.subscribewithme.domain.board;
+package me.hoon.subscribewithme.domain.model.board;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

@@ -1,22 +1,20 @@
-package me.hoon.subscribewithme.interfaces;
+package me.hoon.subscribewithme.interfaces.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.hoon.subscribewithme.domain.users.UserService;
-import me.hoon.subscribewithme.domain.users.Users;
+import me.hoon.subscribewithme.domain.model.users.UserService;
+import me.hoon.subscribewithme.domain.model.users.Users;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-public class UserRestController {
+@RequestMapping("/api/v1/")
+public class UserController {
 
     private final UserService userService;
 

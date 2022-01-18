@@ -1,4 +1,4 @@
-package me.hoon.subscribewithme.domain.common;
+package me.hoon.subscribewithme.domain.model.common;
 
 import lombok.Data;
 

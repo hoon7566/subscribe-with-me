@@ -1,6 +1,5 @@
-package me.hoon.subscribewithme.domain.member;
+package me.hoon.subscribewithme.domain.model.member;
 
-import me.hoon.subscribewithme.domain.users.Users;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
 package me.hoon.subscribewithme.infrastructure.security;
 
 import lombok.RequiredArgsConstructor;
-import me.hoon.subscribewithme.domain.users.UserService;
+import me.hoon.subscribewithme.domain.model.users.UserService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
